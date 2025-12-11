@@ -2,15 +2,13 @@
 
 
 Bureaucrat::Bureaucrat(){}
-Bureaucrat::~Bureaucrat(){}
-Bureaucrat::Bureaucrat(const Bureaucrat &bure){*this = bure;}
-Bureaucrat::Bureaucrat(std::string name, int grade)
+Bureaucrat::Bureaucrat(const Bureaucrat &bure): name(bure.name), grade(bure.grade){}
+Bureaucrat::Bureaucrat(std::string name, int grade):name(name)
 {
     if(grade < 1)
         throw Bureaucrat::GradeTooHighException();
     if(grade > 150)
         throw Bureaucrat::GradeTooLowException();
-    this->name = name;
     this->grade = grade;
 }
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &bure)
@@ -18,7 +16,6 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &bure)
     if(this == &bure)
         return *this;
     this->grade = bure.grade;
-    this->name = bure.name;
     return *this;
 }
 
@@ -28,13 +25,13 @@ int Bureaucrat::getGrade() const {return grade;}
 void Bureaucrat::incrementGrade()
 {
     if(grade <= 1)
-        throw Bureaucrat::GradeTooHighException();
+    throw Bureaucrat::GradeTooHighException();
     grade--;
 }
 void Bureaucrat::decrementGrade()
 {
     if(grade >= 150)
-        throw Bureaucrat::GradeTooLowException();
+    throw Bureaucrat::GradeTooLowException();
     grade++;
 }
 
@@ -43,14 +40,15 @@ const char* Bureaucrat::GradeTooLowException::what()const throw() {return "Grade
 
 std::ostream &operator<<(std::ostream& o, Bureaucrat& bure)
 {
-   o << bure.getName() << ", bureaucrat grade " << bure.getGrade() << std::endl;
-   return o;
+    o << bure.getName() << ", bureaucrat grade " << bure.getGrade() << std::endl;
+    return o;
 }
 
 void Bureaucrat::signForm(bool check,std::string name_f)const
 {
     if(check)
-        std::cout << name <<" signed "<< name_f << std::endl;
+    std::cout << name <<" signed "<< name_f << std::endl;
     else
-        std::cout << name <<" couldn't sign <form> because  "<< name_f << std::endl;
+    std::cout << name <<" couldn't sign <form> because  "<< name_f << std::endl;
 }
+Bureaucrat::~Bureaucrat(){}
