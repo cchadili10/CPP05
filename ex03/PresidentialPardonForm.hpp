@@ -5,10 +5,12 @@
 
 class PresidentialPardonForm : public AForm
 {
+    private:
+        std::string target;
     public:
         PresidentialPardonForm(std::string target);
-        virtual ~PresidentialPardonForm();
         virtual void action() const;
+        virtual ~PresidentialPardonForm();
 };
 
 

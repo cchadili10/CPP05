@@ -2,7 +2,7 @@
 
 
 static AForm* create_shrubbery(const std::string& target) {return new ShrubberyCreationForm(target);};
-static AForm* create_shrubbery(const std::string& target) {return new RobotomyRequestForm(target);};
+static AForm* create_robotomy(const std::string& target) {return new RobotomyRequestForm(target);};
 static AForm* create_presidentail(const std::string& target) {return new PresidentialPardonForm(target);};
 
 AForm *Intern::makeForm(std::string name_form , std::string target_form)
@@ -16,7 +16,7 @@ AForm *Intern::makeForm(std::string name_form , std::string target_form)
     AForm* (*creator[])(const std::string&) = 
     {
         create_shrubbery,
-        create_shrubbery,
+        create_robotomy,
         create_presidentail
     };
 
@@ -29,5 +29,5 @@ AForm *Intern::makeForm(std::string name_form , std::string target_form)
         }
     }
     std::cout << "Intern can't find name" << std::endl; 
-    return nullptr;
+    return NULL;
 }

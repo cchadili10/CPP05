@@ -47,8 +47,8 @@ std::ostream &operator<<(std::ostream& o, Bureaucrat& bure)
 void Bureaucrat::signForm(bool check,std::string name_f)const
 {
     if(check)
-    std::cout << name <<" signed "<< name_f << std::endl;
+        std::cout << name <<" signed "<< name_f << std::endl;
     else
-    std::cout << name <<" couldn't sign <form> because  "<< name_f << std::endl;
+        std::cout << name <<" couldn't sign <form> because  "<< name_f << std::endl;
 }
 Bureaucrat::~Bureaucrat(){}

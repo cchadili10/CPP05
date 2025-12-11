@@ -2,16 +2,15 @@
 #include <cstdlib>
 
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm(target, 72, 45){}
-RobotomyRequestForm::~RobotomyRequestForm(){}
-void RobotomyRequestForm::action() const 
+RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("robotomy", 72, 45){}
+void RobotomyRequestForm::action() const
 {
-    std::srand(time(0));
+    static int random_val = 0;
     std::cout << "Drilling noises" << std::endl;
-    int random_val = std::rand() % 10;
-    if(random_val % 2)
-        std::cout << Get_name() << " has been robotomized successfully" << std::endl;
+    if (random_val % 2)
+    std::cout << target << " has been robotomized successfully" << std::endl;
     else
-        std::cout << Get_name() << "  robotomy failed" << std::endl;
-    
+    std::cout << target << "  robotomy failed" << std::endl;
+    random_val++;
 }
+RobotomyRequestForm::~RobotomyRequestForm(){}

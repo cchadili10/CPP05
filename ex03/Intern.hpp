@@ -8,12 +8,12 @@
 
 class Intern
 {
-private:
-    /* data */
-public:
-    Intern();
-    ~Intern();
-    AForm* makeForm(std::string name_form ,std::string target_form);
+    private:
+    
+    public:
+        Intern();
+        ~Intern();
+        AForm* makeForm(std::string name_form ,std::string target_form);
 };
 
 

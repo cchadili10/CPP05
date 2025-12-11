@@ -4,10 +4,12 @@
 
 class RobotomyRequestForm : public AForm
 {
+    private:
+        std::string target;
     public:
         RobotomyRequestForm(std::string target);
-        virtual ~RobotomyRequestForm();
         virtual void action() const;
+        virtual ~RobotomyRequestForm();
 };
 
 

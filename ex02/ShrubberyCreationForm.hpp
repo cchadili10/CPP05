@@ -6,10 +6,13 @@
 
 class ShrubberyCreationForm : public AForm
 {
+    private :
+        std::string target;
     public:
+        std::string get_target() const;
         ShrubberyCreationForm(std::string target);
-        virtual ~ShrubberyCreationForm();
         virtual void action() const;
+        virtual ~ShrubberyCreationForm();
 };
 
 #endif
