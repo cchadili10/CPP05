@@ -14,7 +14,7 @@ public:
     PresidentialPardonForm &operator=(const PresidentialPardonForm &other);
     PresidentialPardonForm(std::string target);
 
-    virtual void action() const;
+    virtual void execute(Bureaucrat const &executor) const;
     virtual ~PresidentialPardonForm();
 };
 

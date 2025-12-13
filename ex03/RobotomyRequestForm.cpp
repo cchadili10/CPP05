@@ -15,10 +15,13 @@ RobotomyRequestForm &RobotomyRequestForm::operator= (const RobotomyRequestForm &
     return *this;
 }
 
-
-
-void RobotomyRequestForm::action() const
+void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
+    if (!this->Get_signed())
+        throw AForm::GradeIsSignedException();
+    else if (executor.getGrade() > this->Get_execGrade())
+        throw AForm::GradeTooLowException();
+
     static int random_val = 0;
     std::cout << "Drilling noises" << std::endl;
     if (random_val % 2)

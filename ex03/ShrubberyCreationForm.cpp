@@ -17,8 +17,13 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 
 std::string ShrubberyCreationForm::get_target() const { return target; }
 
-void ShrubberyCreationForm::action() const
+void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
+
+    if (!this->Get_signed())
+        throw AForm::GradeIsSignedException();
+    else if (executor.getGrade() > this->Get_execGrade())
+        throw AForm::GradeTooLowException();
 
     std::ofstream file(get_target().append("_shrubbery").c_str());
     if (!file.is_open())
