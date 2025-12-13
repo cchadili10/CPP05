@@ -21,15 +21,9 @@ const char* AForm::GradeIsSignedException::what() const throw() {return "form is
 void AForm::beSigned(const Bureaucrat &bre)
 {
     if(bre.getGrade() <= this->sign_grade)
-    {
-        bre.signForm(true, name);
         is_signed = true;
-    }
     else
-    {
-        bre.signForm(false, name);
         throw AForm::GradeTooLowException();
-    }
 }
 void AForm::execute(Bureaucrat const &executor) const
 {
@@ -42,7 +36,8 @@ void AForm::execute(Bureaucrat const &executor) const
 
 std::ostream& operator<<(std::ostream& o, AForm & form)
 {
-    o << "name : " << form.Get_name() << " ,grade required to sign : " << form.Get_signGrade() << " grade required to execute : " << form.Get_execGrade();
+    o << "name : " << form.Get_name() << " ,grade required to sign : " << form.Get_signGrade() << " grade required to execute : " << form.Get_execGrade() << std::endl;
+    return o;
 }
 
 

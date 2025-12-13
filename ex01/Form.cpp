@@ -15,18 +15,13 @@ int Form::Get_execGrade()const{return execute_grade;}
 
 const char* Bureaucrat::GradeTooHighException::what()const throw() {return "Grade is too high!";}
 const char* Bureaucrat::GradeTooLowException::what()const throw() {return "Grade is too low!";}
+
 void Form::beSigned(const Bureaucrat &bre)
 {
     if(bre.getGrade() <= this->sign_grade)
-    {
-        bre.signForm(true, name);
         is_signed = true;
-    }
     else
-    {
-        bre.signForm(false, name);
         throw Form::GradeTooLowException();
-    }
 }
 std::ostream& operator<<(std::ostream& o, Form& form)
 {

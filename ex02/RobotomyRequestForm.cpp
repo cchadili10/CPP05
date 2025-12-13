@@ -1,8 +1,22 @@
 #include "RobotomyRequestForm.hpp"
 #include <cstdlib>
 
+RobotomyRequestForm::RobotomyRequestForm() : AForm(), target("none") {}
+RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("Robotomy", 72, 45, false), target(target) {}
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("Robotomy", 72, 45, false), target(target){}
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other) : AForm(other), target(other.target) {}
+RobotomyRequestForm &RobotomyRequestForm::operator= (const RobotomyRequestForm &other)
+{
+    if(this != &other)
+    {
+        AForm::operator=(other);
+        this->target = other.target;
+    }
+    return *this;
+}
+
+
+
 void RobotomyRequestForm::action() const
 {
     static int random_val = 0;

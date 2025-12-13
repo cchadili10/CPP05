@@ -38,7 +38,7 @@ class AForm
             public:
                 const char* what() const throw();
         };
-        virtual void execute(Bureaucrat const & executor) const;
+        void execute(Bureaucrat const & executor) const;
         virtual void action() const = 0 ;
 
 };

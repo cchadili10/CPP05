@@ -27,26 +27,47 @@ int main() {
 //     }
 
 //     return 0;
+    try
+    {
+        Bureaucrat alice("Alice", 1);
+        // ShrubberyCreationForm shrubbery("garden");
+        RobotomyRequestForm robotomy("Bender");
 
-    Bureaucrat alice("Alice", 1);    // High rank (can do anything)
-    Bureaucrat bob("Bob", 150);      // Low rank (can do almost nothing)
-    Bureaucrat eve("Eve", 40);       // Medium rank
+        alice.signForm(robotomy);
+        // shrubbery.beSigned(alice);
+        alice.executeForm(robotomy);
+        alice.executeForm(robotomy);
+        alice.executeForm(robotomy);
+        alice.executeForm(robotomy);
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    
 
-    // Create Forms
-    ShrubberyCreationForm shrubbery("garden");
-    RobotomyRequestForm robotomy("Bender");
-    PresidentialPardonForm pardon("Marvin");
 
-    // Try to sign and execute forms with various bureaucrats
+    // Bureaucrat alice("Alice", 150);    // High rank (can do anything)
+    // Bureaucrat bob("Bob", 150);      // Low rank (can do almost nothing)
+    // Bureaucrat eve("Eve", 40);       // Medium rank
 
-    std::cout << "\n--- Executing Forms ---\n";
-    bob.executeForm(shrubbery);   // Should fail (low grade)
-    eve.executeForm(robotomy);    // Should succeed if signed
-    alice.executeForm(pardon);    // Should succeed
+    // // Create Forms
+    // ShrubberyCreationForm shrubbery("garden");
+    // RobotomyRequestForm robotomy("Bender");
+    // PresidentialPardonForm pardon("Marvin");
 
-    std::cout << "\n--- Executing All Forms with Alice ---\n";
-    alice.executeForm(shrubbery);
-    alice.executeForm(robotomy);
-    alice.executeForm(pardon);
-    std::cout << "dsd"<<std::endl;
+    // shrubbery.beSigned(alice);
+
+    // // Try to sign and execute forms with various bureaucrats
+
+    // std::cout << "\n--- Executing Forms ---\n";
+    // bob.executeForm(shrubbery);   // Should fail (low grade)
+    // eve.executeForm(robotomy);    // Should succeed if signed
+    // alice.executeForm(pardon);    // Should succeed
+
+    // std::cout << "\n--- Executing All Forms with Alice ---\n";
+    // alice.executeForm(shrubbery);
+    // alice.executeForm(robotomy);
+    // alice.executeForm(pardon);
+    // std::cout << "dsd"<<std::endl;
 }

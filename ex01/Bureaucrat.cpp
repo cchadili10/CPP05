@@ -44,11 +44,16 @@ std::ostream &operator<<(std::ostream& o, Bureaucrat& bure)
     return o;
 }
 
-void Bureaucrat::signForm(bool check,std::string name_f)const
-{
-    if(check)
-        std::cout << name <<" signed "<< name_f << std::endl;
-    else
-        std::cout << name <<" couldn't sign <form> because  "<< name_f << std::endl;
+void Bureaucrat::signForm(Form &oth)const
+{   
+    try
+    {
+        oth.beSigned(*this);
+        std::cout << name << " signed " << oth.Get_name() << std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::cout << name << " couldn't sign " << oth.Get_name() << " because "<< e.what() << std::endl;
+    }
 }
 Bureaucrat::~Bureaucrat(){}

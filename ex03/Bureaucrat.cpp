@@ -47,13 +47,19 @@ std::ostream &operator<<(std::ostream& o, Bureaucrat& bure)
    return o;
 }
 
-void Bureaucrat::signForm(bool check,std::string name_f)const
+void Bureaucrat::signForm(AForm &form) const
 {
-    if(check)
-        std::cout << name <<" signed "<< name_f << std::endl;
-    else
-        std::cout << name <<" couldn't sign <form> because  "<< name_f << std::endl;
+    try
+    {
+        form.beSigned(*this);
+        std::cout << name << " signed " << form.Get_name() << std::endl;
+    }
+    catch (const std::exception &e)
+    {
+        std::cout << name << " couldn't sign " << form.Get_name() << " because " << e.what() << std::endl;
+    }
 }
+
 void Bureaucrat::executeForm(AForm const &form) const 
 {
     try
@@ -63,7 +69,7 @@ void Bureaucrat::executeForm(AForm const &form) const
     }
     catch(const std::exception& e)
     {
-        std::cout << "is not executed successfully" << std::endl;
+        std::cout << name << " couldn’t execute " << form.Get_name() << " because " << e.what() << std::endl;
     }
     
 }
