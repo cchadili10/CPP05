@@ -1,7 +1,14 @@
 #include "AForm.hpp"
+#include "Bureaucrat.hpp"
 
 AForm::AForm() : name("empty"), sign_grade(150), execute_grade(150), is_signed(false) {}
-AForm::AForm(std::string name, int sign_grade, int execute_grade, bool is_sin) : name(name), sign_grade(sign_grade), execute_grade(execute_grade), is_signed(is_sin) {}
+AForm::AForm(std::string name, int sign_grade, int execute_grade) : name(name), sign_grade(sign_grade), execute_grade(execute_grade), is_signed(false) 
+{
+    if(sign_grade < 1 ||  execute_grade < 1)
+        throw GradeTooHighException();
+    else if (sign_grade > 150 || execute_grade > 150)
+        throw GradeTooLowException();
+}
 AForm::AForm(const AForm &Aform) : name(Aform.name), sign_grade(Aform.sign_grade), execute_grade(Aform.execute_grade), is_signed(Aform.is_signed) {}
 AForm &AForm::operator=(const AForm &Aform)
 {
@@ -26,10 +33,10 @@ void AForm::beSigned(const Bureaucrat &bre)
         throw AForm::GradeTooLowException();
 }
 
-std::ostream &operator<<(std::ostream &o, AForm &form)
+std::ostream &operator<<(std::ostream &os, AForm &form)
 {
-    o << "name : " << form.Get_name() << " ,grade required to sign : " << form.Get_signGrade() << " grade required to execute : " << form.Get_execGrade() << std::endl;
-    return o;
+    os << "name : " << form.Get_name() << " ,grade required to sign : " << form.Get_signGrade() << " grade required to execute : " << form.Get_execGrade() << " is signed " << (form.Get_signed() ? "yes" : "No");
+    return os;
 }
 
 AForm::~AForm() {}

@@ -9,8 +9,7 @@
 //  "robotomy request",
 //  "presidentail pardon"
 
-    int
-    main()
+int main()
 {
 
     Bureaucrat ali("ali",1);

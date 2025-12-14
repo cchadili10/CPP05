@@ -1,8 +1,9 @@
 #include "RobotomyRequestForm.hpp"
-#include <cstdlib>
+#include "Bureaucrat.hpp"
+
 
 RobotomyRequestForm::RobotomyRequestForm() : AForm(), target("none") {}
-RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("Robotomy", 72, 45, false), target(target) {}
+RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("Robotomy", 72, 45), target(target) {}
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other) : AForm(other), target(other.target) {}
 RobotomyRequestForm &RobotomyRequestForm::operator= (const RobotomyRequestForm &other)

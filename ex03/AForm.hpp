@@ -1,7 +1,8 @@
 #ifndef AFORM_HPP
 #define AFORM_HPP
 
-#include "Bureaucrat.hpp"
+#include <string>
+#include <iostream>
 
 class Bureaucrat;
 
@@ -16,7 +17,7 @@ private:
 public:
     AForm();
     AForm(const AForm &afrom);
-    AForm(std::string name, int grade, int grade_req, bool is_sin);
+    AForm(std::string name, int grade, int grade_req);
     AForm &operator=(const AForm &aform);
     virtual ~AForm();
     std::string Get_name() const;
@@ -40,7 +41,6 @@ public:
             const char *what() const throw();
     };
     virtual void execute(Bureaucrat const &executor) const = 0;
-    // virtual void action() const = 0 ;
 };
 std::ostream &operator<<(std::ostream &o, AForm &Aform);
 
