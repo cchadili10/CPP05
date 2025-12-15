@@ -1,7 +1,7 @@
 #include "Bureaucrat.hpp"
 
 
-Bureaucrat::Bureaucrat(){}
+Bureaucrat::Bureaucrat():name("none"), grade(140){}
 Bureaucrat::Bureaucrat(const Bureaucrat &bure): name(bure.name), grade(bure.grade){}
 Bureaucrat::Bureaucrat(std::string name, int grade):name(name)
 {

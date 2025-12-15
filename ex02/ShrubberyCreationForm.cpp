@@ -1,8 +1,9 @@
 #include "ShrubberyCreationForm.hpp"
+#include "Bureaucrat.hpp"
 #include <fstream>
 
 ShrubberyCreationForm::ShrubberyCreationForm() : AForm(), target("none") {}
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("Shrubbery", 145, 137, false), target(target) {}
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("Shrubbery", 145, 137), target(target) {}
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other) : AForm(other), target(other.target) {}
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &other) 
@@ -17,7 +18,7 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 
 std::string ShrubberyCreationForm::get_target()const {return target;}
 
-void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
+void ShrubberyCreationForm::execute (const Bureaucrat &executor) const
 {
 
     if (!this->Get_signed())

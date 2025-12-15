@@ -1,7 +1,9 @@
 #ifndef AFORM_HPP
 #define AFORM_HPP
+#include <string>
+#include <iostream>
 
-#include "Bureaucrat.hpp"
+// #include "Bureaucrat.hpp"
 
 class Bureaucrat;
 
@@ -15,7 +17,7 @@ class AForm
     public:
         AForm();
         AForm(const AForm &afrom);
-        AForm(std::string name, int grade, int grade_req, bool is_sin);
+        AForm(std::string name, int grade, int grade_req);
         AForm &operator = (const AForm &aform);
         virtual ~AForm();
         std::string Get_name()const;
