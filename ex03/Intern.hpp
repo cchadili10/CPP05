@@ -7,7 +7,12 @@
 #include "PresidentialPardonForm.hpp"
 
 class Intern
-{   
+{
+    private:
+        AForm *create_shrubbery(std::string target);
+        AForm *create_robotomy(std::string target);
+        AForm *create_presidential(std::string target);
+
     public:
         Intern();
         Intern(const Intern &other);

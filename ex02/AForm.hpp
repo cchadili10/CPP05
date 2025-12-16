@@ -44,6 +44,6 @@ class AForm
         // virtual void action() const = 0 ;
 
 };
-std::ostream& operator<<(std::ostream& o, AForm& Aform);
+std::ostream& operator<<(std::ostream& os, const AForm& Aform);
 
 #endif

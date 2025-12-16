@@ -36,6 +36,6 @@ class Form
                 const char* what() const throw();
         };
 };
-std::ostream& operator<<(std::ostream& o, Form& form);
+std::ostream& operator<<(std::ostream& os, const Form& form);
 
 #endif

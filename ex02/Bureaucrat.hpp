@@ -37,5 +37,5 @@ class Bureaucrat
         void executeForm(AForm const & form) const;
 
 };
-std::ostream& operator<<(std::ostream& o, Bureaucrat& bure);
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& bure);
 #endif

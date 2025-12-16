@@ -8,9 +8,9 @@ Intern &Intern::operator = (const Intern &other)
     return *this;
 }
 
-static AForm* create_shrubbery(const std::string& target) {return new ShrubberyCreationForm(target);};
-static AForm* create_robotomy(const std::string& target) {return new RobotomyRequestForm(target);};
-static AForm* create_presidentail(const std::string& target) {return new PresidentialPardonForm(target);};
+AForm *Intern::create_shrubbery(std::string target) { return new ShrubberyCreationForm(target); };
+AForm* Intern::create_robotomy(std::string target) {return new RobotomyRequestForm(target);};
+AForm *Intern::create_presidential(std::string target) { return new PresidentialPardonForm(target);};
 
 AForm *Intern::makeForm(std::string name_form , std::string target_form)
 {
@@ -20,19 +20,19 @@ AForm *Intern::makeForm(std::string name_form , std::string target_form)
         "robotomy request",
         "presidentail pardon"
     };
-    AForm* (*creator[])(const std::string&) = 
-    {
-        create_shrubbery,
-        create_robotomy,
-        create_presidentail
-    };
-    
+    AForm *(Intern::*creator[3])(std::string) =
+        {
+            &Intern::create_shrubbery,
+            &Intern::create_robotomy,
+            &Intern::create_presidential
+        };
+
     for (size_t i = 0; i < 3; i++)
     {
         if(name_form == names[i])
         {
             std::cout << "Intern creates" << name_form << std::endl;
-            return creator[i](target_form);
+            return (this->*creator[i])(target_form);
         }
     }
     std::cout << "Intern can't find name" << std::endl; 

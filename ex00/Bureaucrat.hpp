@@ -31,5 +31,5 @@ class Bureaucrat
                 const char* what() const throw();
         };
 };
-std::ostream& operator<<(std::ostream& o, Bureaucrat& bure);
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& bure);
 #endif

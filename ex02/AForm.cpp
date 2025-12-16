@@ -34,10 +34,10 @@ void AForm::beSigned(const Bureaucrat &bre)
 }
 
 
-std::ostream& operator<<(std::ostream& o, AForm & form)
+std::ostream& operator<<(std::ostream& os, const AForm & form)
 {
-    o << "name : " << form.Get_name() << " ,grade required to sign : " << form.Get_signGrade() << " grade required to execute : " << form.Get_execGrade()  <<  " is signed " << (form.Get_signed() ? "yes" : "No");
-    return o;
+    os << "name : " << form.Get_name() << " ,grade required to sign : " << form.Get_signGrade() << " grade required to execute : " << form.Get_execGrade()  <<  " is signed " << (form.Get_signed() ? "yes" : "No");
+    return os;
 }
 
 

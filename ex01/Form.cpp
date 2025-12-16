@@ -31,7 +31,7 @@ void Form::beSigned(const Bureaucrat &bre)
     else
         throw Form::GradeTooLowException();
 }
-std::ostream& operator<<(std::ostream& os, Form& form)
+std::ostream& operator<<(std::ostream& os, const Form& form)
 {
     os << "name : " << form.Get_name() << " ,grade required to sign : " << form.Get_signGrade() << " grade required to execute : " << form.Get_execGrade() << " is signed " << (form.Get_signed() ? "yes" : "No");
     return os;
