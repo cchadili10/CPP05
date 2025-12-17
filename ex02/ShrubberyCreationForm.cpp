@@ -21,9 +21,7 @@ std::string ShrubberyCreationForm::get_target()const {return target;}
 void ShrubberyCreationForm::execute (const Bureaucrat &executor) const
 {
 
-    if (!this->Get_signed())
-        throw AForm::GradeIsSignedException();
-    else if (executor.getGrade() > this->Get_execGrade())
+    if (!this->Get_signed() ||executor.getGrade() > this->Get_execGrade() )
         throw AForm::GradeTooLowException();
     
     std::ofstream file(get_target().append("_shrubbery").c_str());

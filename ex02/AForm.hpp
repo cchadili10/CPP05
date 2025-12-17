@@ -3,7 +3,6 @@
 #include <string>
 #include <iostream>
 
-// #include "Bureaucrat.hpp"
 
 class Bureaucrat;
 
@@ -35,13 +34,8 @@ class AForm
             public:
                 const char* what() const throw();
         };
-        class GradeIsSignedException : public std::exception
-        {
-            public:
-                const char* what() const throw();
-        };
+    
         virtual void execute(Bureaucrat const & executor) const = 0;
-        // virtual void action() const = 0 ;
 
 };
 std::ostream& operator<<(std::ostream& os, const AForm& Aform);

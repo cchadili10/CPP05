@@ -18,9 +18,7 @@ RobotomyRequestForm &RobotomyRequestForm::operator= (const RobotomyRequestForm &
 
 void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
-    if (!this->Get_signed())
-        throw AForm::GradeIsSignedException();
-    else if (executor.getGrade() > this->Get_execGrade())
+    if (!this->Get_signed() || executor.getGrade() > this->Get_execGrade() )
         throw AForm::GradeTooLowException();
 
     static int random_val = 0;

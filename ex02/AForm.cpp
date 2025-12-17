@@ -23,7 +23,6 @@ int AForm::Get_execGrade()const{return execute_grade;}
 
 const char* AForm::GradeTooHighException::what()const throw() {return "Grade is too high!";}
 const char* AForm::GradeTooLowException::what()const throw() {return "Grade is too low!";}
-const char* AForm::GradeIsSignedException::what() const throw() {return "form is not signed";}
 
 void AForm::beSigned(const Bureaucrat &bre)
 {
